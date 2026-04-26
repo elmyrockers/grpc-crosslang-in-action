@@ -1,4 +1,4 @@
-module github.com/elmyrockers/grpc-crosslang-in-action/http_server
+module github.com/elmyrockers/grpc-crosslang-in-action/http-server
 
 go 1.26.1
 
