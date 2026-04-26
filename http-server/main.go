@@ -3,7 +3,7 @@ package main
 import (
 	// "fmt"
 	"log"
-
+	"github.com/elmyrockers/grpc-crosslang-in-action/http-server/controller"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -14,10 +14,10 @@ func main() {
 		app.Get("/", func(c *fiber.Ctx) error {
 			return c.Redirect("/users")
 		})
-		app.Get("/users", func(c *fiber.Ctx) error {
-			return c.SendString( "test" )
-		})
+
+		userController := controller.UserController{}
+		app.Get("/users", userController.List )
+		app.Get("/users/new", userController.New )
 
 	log.Fatal(app.Listen(":3000"))
-	// fmt.Println( "test sahaja" )
 }
