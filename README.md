@@ -39,7 +39,7 @@ Minimal cross-language gRPC demo illustrating service-to-service communication b
 ![Jet](https://img.shields.io/badge/Jet-Template-FF5A5F?style=flat-square) -->
 
 
-![Go](https://img.shields.io/badge/Go-Backend-00ADD8?style=flat-square&logo=go)
+<!-- ![Go](https://img.shields.io/badge/Go-Backend-00ADD8?style=flat-square&logo=go)
 ![C++](https://img.shields.io/badge/C++-Server-00599C?style=flat-square&logo=cplusplus)
 ![Rust](https://img.shields.io/badge/Rust-Server-000000?style=flat-square&logo=rust)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-Frontend-38B2AC?style=flat-square&logo=tailwind-css)
@@ -49,6 +49,16 @@ Minimal cross-language gRPC demo illustrating service-to-service communication b
 
 ![Fiber](https://img.shields.io/badge/Fiber-HTTP-00ACD7?style=flat)
 ![gRPC](https://img.shields.io/badge/gRPC-RPC-4285F4?style=flat-square)
-![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-005F9E?style=plastic)
-<!-- ![Jet](https://img.shields.io/badge/Jet-Template-FF5A5F?style=for-the-badge) -->
-![Jet for-the-badge](https://img.shields.io/badge/Jet-Template-FF5A5F?style=for-the-badge)
+![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-005F9E?style=plastic) -->
+
+![Go](https://img.shields.io/badge/Go-Backend-lightgrey?style=flat-square)
+![Fiber](https://img.shields.io/badge/Fiber-HTTP-lightgrey?style=flat-square)
+![gRPC](https://img.shields.io/badge/gRPC-RPC-lightgrey?style=flat-square)
+![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-lightgrey?style=flat-square)
+![Jet](https://img.shields.io/badge/Jet-Template-lightgrey?style=flat-square)
+![C++](https://img.shields.io/badge/C++-Server-lightgrey?style=flat-square)
+![Rust](https://img.shields.io/badge/Rust-Server-lightgrey?style=flat-square)
+![Axios](https://img.shields.io/badge/Axios-HTTP%20Client-lightgrey?style=flat-square)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-Frontend-lightgrey?style=flat-square)
+![Alpine.js](https://img.shields.io/badge/Alpine-UI-lightgrey?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Container-lightgrey?style=flat-square)
