@@ -30,9 +30,21 @@ Minimal cross-language gRPC demo illustrating service-to-service communication b
 ![Alpine.js](https://img.shields.io/badge/Alpine-UI-0F172A?style=flat-square)
 ![Jet](https://img.shields.io/badge/Jet-Template-0F172A?style=flat-square) -->
 
+<!-- ![Go](https://img.shields.io/badge/Go-Backend-00ADD8?style=flat-square&logo=go)
+![Fiber](https://img.shields.io/badge/Fiber-HTTP-2C8EBB?style=flat-square&logo=fiber)
+![gRPC](https://img.shields.io/badge/gRPC-RPC-4285F4?style=flat-square&logo=grpc)
+![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-005F9E?style=flat-square)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-Frontend-38B2AC?style=flat-square&logo=tailwind-css)
+![Alpine.js](https://img.shields.io/badge/Alpine-UI-77C1D2?style=flat-square&logo=alpine.js)
+![Jet](https://img.shields.io/badge/Jet-Template-FF5A5F?style=flat-square) -->
+
+
 ![Go](https://img.shields.io/badge/Go-Backend-00ADD8?style=flat-square&logo=go)
 ![Fiber](https://img.shields.io/badge/Fiber-HTTP-2C8EBB?style=flat-square&logo=fiber)
 ![gRPC](https://img.shields.io/badge/gRPC-RPC-4285F4?style=flat-square&logo=grpc)
+![C++](https://img.shields.io/badge/C++-Server-00599C?style=flat-square&logo=cplusplus)
+![Rust](https://img.shields.io/badge/Rust-Server-000000?style=flat-square&logo=rust)
+![Axios](https://img.shields.io/badge/Axios-HTTP%20Client-5A29E4?style=flat-square&logo=axios)
 ![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-005F9E?style=flat-square)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-Frontend-38B2AC?style=flat-square&logo=tailwind-css)
 ![Alpine.js](https://img.shields.io/badge/Alpine-UI-77C1D2?style=flat-square&logo=alpine.js)
