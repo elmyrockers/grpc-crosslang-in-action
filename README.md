@@ -48,3 +48,6 @@ Minimal cross-language gRPC demo illustrating service-to-service communication b
 ![Docker](https://img.shields.io/badge/Docker-Container-2496ED?style=flat-square&logo=docker)
 
 ![Fiber](https://img.shields.io/badge/Fiber-HTTP-00ACD7?style=flat)
+![gRPC](https://img.shields.io/badge/gRPC-RPC-4285F4?style=flat-square)
+![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-005F9E?style=plastic)
+![Jet](https://img.shields.io/badge/Jet-Template-FF5A5F?style=for-the-badge)
