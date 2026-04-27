@@ -45,11 +45,10 @@ Minimal cross-language gRPC demo illustrating service-to-service communication b
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-Frontend-38B2AC?style=flat-square&logo=tailwind-css)
 ![Alpine.js](https://img.shields.io/badge/Alpine-UI-77C1D2?style=flat-square&logo=alpine.js)
 ![Axios](https://img.shields.io/badge/Axios-HTTP%20Client-5A29E4?style=flat-square&logo=axios)
+![Docker](https://img.shields.io/badge/Docker-Container-2496ED?style=flat-square&logo=docker)
 
 ![Fiber](https://img.shields.io/badge/Fiber-HTTP-2C8EBB?style=flat-square&logo=fiber)
 ![Jet](https://img.shields.io/badge/Jet-Template-FF5A5F?style=flat-square)
 ![gRPC](https://img.shields.io/badge/gRPC-RPC-4285F4?style=flat-square&logo=grpc)
 ![FlatBuffers](https://img.shields.io/badge/FlatBuffers-Serialization-005F9E?style=flat-square)
-
-
 
