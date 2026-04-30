@@ -114,7 +114,7 @@
 									</span>
 
 									<!-- Input -->
-									<input type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+									<input x-ref="fullname" type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
 								</div>
 							</div>
 
@@ -178,21 +178,18 @@
 		<footer class="bg-gray-800 text-white text-center p-4 text-sm">Copyright © 2026 <a href="https://elmyrockers.github.io">elmyrockers.github.io</a></footer>
 
 
-
-
-
-
-		<!-- <div x-data="{ users: ['A', 'B', 'C', 'D', 'E'] }">
-			<template x-for="user in users">
-				<div x-text="user"></div>
-			</template>
-		</div> -->
 		<script>
+			var v = null;
 			document.addEventListener( 'alpine:init',()=>{
 				Alpine.data( 'app',()=>({
 					loading: false,
 					showCreateModal: false,
-					openCreateModal(){ this.showCreateModal = true },
+					openCreateModal(){
+						this.showCreateModal = true;
+						this.$nextTick(() => {
+							this.$refs.fullname.focus();
+						})
+					},
 					closeCreateModal(){ this.showCreateModal = false }
 				}));
 			});
