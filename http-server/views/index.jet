@@ -100,6 +100,7 @@
 							<button @click="closeCreateModal" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
 					</div>
 
+					<form>
 					<div class="p-6 space-y-5">
 							<!-- Name -->
 							<div class="flex items-center gap-4">
@@ -114,7 +115,7 @@
 									</span>
 
 									<!-- Input -->
-									<input x-ref="fullname" type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+									<input x-ref="fullname" x-model="newUserForm.name" type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
 								</div>
 							</div>
 
@@ -126,7 +127,7 @@
 									<span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-l-lg"><i class="fa-solid fa-envelope"></i></span>
 
 									<!-- Input -->
-									<input type="text" placeholder="Email" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+									<input type="text" x-model="newUserForm.email" placeholder="Email" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
 								</div>
 							</div>
 
@@ -143,7 +144,7 @@
 									</span>
 
 									<!-- Input -->
-									<input type="number" min="1" max="100" placeholder="Age" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+									<input type="number"  x-model="newUserForm.age" min="1" max="100" placeholder="Age" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
 								</div>
 							</div>
 
@@ -160,15 +161,16 @@
 									</span>
 
 									<!-- Input -->
-									<input type="text" placeholder="City / Country" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+									<input type="text"  x-model="newUserForm.location" placeholder="City / Country" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
 								</div>
 							</div>
 					</div>
+					</form>
 
 					<!-- Footer -->
 					<div class="flex justify-end gap-3 px-6 py-4 border-t bg-gray-50 rounded-b-xl">
 						<button @click="closeCreateModal" class="px-4 py-2 text-sm border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100">Cancel</button>
-						<button class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
+						<button @click="newUser" class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
 					</div>
 				</div>
 			</div>
@@ -184,13 +186,22 @@
 				Alpine.data( 'app',()=>({
 					loading: false,
 					showCreateModal: false,
+					newUserForm: {
+						name: "",
+						email: "",
+						age: "",
+						location: "",
+					},
 					openCreateModal(){
 						this.showCreateModal = true;
 						this.$nextTick(() => {
 							this.$refs.fullname.focus();
 						})
 					},
-					closeCreateModal(){ this.showCreateModal = false }
+					closeCreateModal(){ this.showCreateModal = false },
+					newUser(){
+						console.log( this.newUserForm );
+					}
 				}));
 			});
 		</script>
