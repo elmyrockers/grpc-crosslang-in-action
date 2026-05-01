@@ -39,15 +39,24 @@ type UserController struct {}
 
 	func (u *UserController) New( c *fiber.Ctx ) error {
 		fmt.Println( "New user" )
-		return nil
+		
+		return c.JSON(fiber.Map{
+			"success": true,
+		});
 	}
 
 	func (u *UserController) Edit( c *fiber.Ctx ) error {
 		fmt.Println( "Edit User" )
-		return nil
+
+		return c.JSON(fiber.Map{
+			"success": true,
+		});
 	}
 
 	func (u *UserController) Delete( c *fiber.Ctx ) error {
 		fmt.Println( "Delete User" )
-		return nil
+
+		return c.JSON(fiber.Map{
+			"success": true,
+		});
 	}
