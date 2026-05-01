@@ -33,7 +33,7 @@ type UserController struct {}
 	func (u *UserController) All( c *fiber.Ctx ) error {
 		return c.JSON([]User{
 			{ID: 1, Name: "Helmi Aziz", Age: 27, Location: "Kuala Lumpur", Email: "helmi@xeno.com.my"},
-			{ID: 2, Name: "Hazim", Age: 30, Location: "Alor Setar", Email: "hazim@gmail.com"},
+			{ID: 2, Name: "Akmal Hazim", Age: 30, Location: "Alor Setar", Email: "hazim@gmail.com"},
 		})
 	}
 
