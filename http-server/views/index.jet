@@ -59,7 +59,7 @@
 								<td class="p-3 border-b">
 									<div class="flex gap-2">
 										<!-- Edit Button -->
-										<button class="text-blue-600 hover:text-blue-800 p-1 rounded hover:bg-gray-100" title="Edit" @click="alert('Edit user 1')">
+										<button class="text-blue-600 hover:text-blue-800 p-1 rounded hover:bg-gray-100" title="Edit" @click="openEditModal(1)">
 										  <!-- Pencil Icon -->
 											<svg xmlns="http://www.w3.org/2000/svg" 
 												class="w-5 h-5" fill="none" 
@@ -69,7 +69,7 @@
 										</button>
 
 										<!-- Delete Button -->
-										<button class="text-red-600 hover:text-red-800 p-1 rounded hover:bg-gray-100" title="Delete" @click="if(confirm('Delete this user?')) alert('Deleted!')">
+										<button class="text-red-600 hover:text-red-800 p-1 rounded hover:bg-gray-100" title="Delete" @click="if(confirm('Delete this user?')) deleteUser(1)">
 											<!-- Trash Icon -->
 											<svg xmlns="http://www.w3.org/2000/svg" 
 												class="w-5 h-5" fill="none" 
@@ -116,7 +116,7 @@
 									</span>
 
 									<!-- Input -->
-									<input x-ref="fullname" x-model="newUserForm.name" type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+									<input x-ref="create_focus" x-model="newUserForm.name" type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
 								</div>
 							</div>
 
@@ -175,6 +175,94 @@
 					</div>
 				</div>
 			</div>
+
+			<div x-show="showEditModal" class="fixed inset-0 z-50 flex items-center justify-center">
+				<!-- Backdrop -->
+				<div class="absolute inset-0 bg-black/40"></div>
+				
+				<!-- Modal -->
+				<div class="relative w-full max-w-md bg-white rounded-xl shadow-lg border border-gray-200">
+					<!-- Header -->
+					<div class="flex items-center justify-between px-6 py-4 border-b">
+							<h2 class="text-gray-800 text-lg font-semibold">Edit User</h2>
+							<button @click="closeEditModal" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+					</div>
+
+					<form>
+						<input x-model="editUserForm.id" type="hidden" name="id">
+					<div class="p-6 space-y-5">
+							<!-- Name -->
+							<div class="flex items-center gap-4">
+								<!-- Label -->
+								<label class="w-32 text-sm text-gray-700">Name</label>
+							
+								<!-- Input Group -->
+								<div class="flex flex-1">
+									<!-- Left addon -->
+									<span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-l-lg">
+										<i class="fa-solid fa-user"></i>
+									</span>
+
+									<!-- Input -->
+									<input x-ref="edit_focus" x-model="editUserForm.name" type="text" placeholder="Fullname" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+								</div>
+							</div>
+
+							<!-- Email -->
+							<div class="flex items-center gap-4">
+								<label class="w-32 text-sm text-gray-700">Email</label>
+								<div class="flex flex-1">
+									<!-- Prefix / group text -->
+									<span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-l-lg"><i class="fa-solid fa-envelope"></i></span>
+
+									<!-- Input -->
+									<input type="text" x-model="editUserForm.email" placeholder="Email" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+								</div>
+							</div>
+
+							<!-- Age -->
+							<div class="flex items-center gap-4">
+								<!-- Label -->
+								<label class="w-32 text-sm text-gray-700">Age</label>
+							
+								<!-- Input Group -->
+								<div class="flex flex-1">
+									<!-- Left addon -->
+									<span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-l-lg">
+										<i class="fa-solid fa-clock"></i>
+									</span>
+
+									<!-- Input -->
+									<input type="number"  x-model="editUserForm.age" min="1" max="100" placeholder="Age" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+								</div>
+							</div>
+
+							<!-- Location -->
+							<div class="flex items-center gap-4">
+								<!-- Label -->
+								<label class="w-32 text-sm text-gray-700">Location</label>
+							
+								<!-- Input Group -->
+								<div class="flex flex-1">
+									<!-- Left addon -->
+									<span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-l-lg">
+										<i class="fa-solid fa-location-dot"></i>
+									</span>
+
+									<!-- Input -->
+									<input type="text"  x-model="editUserForm.location" placeholder="City / Country" class="w-full border-t border-b border-r border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-r-lg">
+								</div>
+							</div>
+					</div>
+					</form>
+
+					<!-- Footer -->
+					<div class="flex justify-end gap-3 px-6 py-4 border-t bg-gray-50 rounded-b-xl">
+						<button @click="closeEditModal" class="px-4 py-2 text-sm border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100">Cancel</button>
+						<button @click="editUser" class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<!-- Footer -->
@@ -187,7 +275,15 @@
 				Alpine.data( 'app',()=>({
 					loading: false,
 					showCreateModal: false,
+					showEditModal: false,
 					newUserForm: {
+						name: "",
+						email: "",
+						age: "",
+						location: "",
+					},
+					editUserForm: {
+						id: "",
 						name: "",
 						email: "",
 						age: "",
@@ -196,12 +292,28 @@
 					openCreateModal(){
 						this.showCreateModal = true;
 						this.$nextTick(() => {
-							this.$refs.fullname.focus();
+							this.$refs.create_focus.focus();
+						})
+					},
+					openEditModal( id ){
+						console.log( 'User ID: ', id );
+
+						this.showEditModal = true;
+						this.$nextTick(() => {
+							this.$refs.edit_focus.focus();
 						})
 					},
 					closeCreateModal(){ this.showCreateModal = false },
+					closeEditModal(){ this.showEditModal = false },
 					newUser(){
 						console.log( this.newUserForm );
+					},
+					editUser(){
+						console.log( this.editUserForm );
+					},
+					deleteUser( id ){
+						console.log( `User ID: ${id}` );
+						alert( 'Deleted!' );
 					}
 				}));
 			});
