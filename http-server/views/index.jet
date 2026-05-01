@@ -48,6 +48,11 @@
 							</tr>
 						</thead>
 						<tbody>
+							<template x-if="!Object.keys(users).length">
+								<tr class="hover:bg-gray-50">
+									<td colspan="6" class="p-3 border-b text-center">No data yet at this moment</td>
+								</tr>
+							</template>
 							<template x-for="user in users">
 								<tr class="hover:bg-gray-50">
 									<td class="p-3 border-b" x-text="user.id"></td>
@@ -274,10 +279,7 @@
 		<script>
 			document.addEventListener( 'alpine:init',()=>{
 				Alpine.data( 'app',()=>({
-					users: {
-						"1": {id:'1', name:"Helmi", email: "helmi@xeno.com.my", age: "35", location: "Kuala Lumpur"},
-						"2": {id:'2', name:"Khairul", email: "khairul@gmail.com", age: "29", location: "Alor Setar"},
-					},
+					users: {},
 					loading: false,
 					showCreateModal: false,
 					showEditModal: false,
@@ -294,8 +296,17 @@
 						age: "",
 						location: "",
 					},
+					init(){ this.reloadUsers() },
 					reloadUsers(){
-						this.users = {};
+						users = [
+							{id:'1', name:"Helmi", email: "helmi@xeno.com.my", age: "35", location: "Kuala Lumpur"},
+							{id:'2', name:"Khairul", email: "khairul@gmail.com", age: "29", location: "Alor Setar"},
+						];
+
+						// Re-map
+							for( let user of users ){
+								this.users[ user.id ] = user;
+							}
 					},
 					openCreateModal(){
 						this.showCreateModal = true;
