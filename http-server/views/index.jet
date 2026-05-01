@@ -317,8 +317,8 @@
 					closeEditModal(){ this.showEditModal = false },
 					async loadUsers(){
 						this.loading = true;
+
 						// Get list of users
-							
 							var users = [];
 							try {
 								const response = await axios.get('/api/users');
@@ -331,6 +331,7 @@
 							for( let user of users ){
 								this.users[ user.id ] = user;
 							}
+							
 						this.loading = false;
 					},
 					newUser(){
