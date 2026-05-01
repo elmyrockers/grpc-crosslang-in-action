@@ -339,6 +339,13 @@
 					},
 					async newUser(){
 						try {
+							if ( !this.newUserForm.name ||
+								 !this.newUserForm.email ||
+								 !this.newUserForm.age ||
+								 !this.newUserForm.location ) {
+								throw new Error( 'Make sure input values aren\'t empty' );
+							}
+
 							const response = await axios.post( '/api/users', this.newUserForm );
 							if ( response.data.success ) {
 								alert( 'Successfully add new user!' );
@@ -351,7 +358,7 @@
 							alert( 'Failed to add new user!' );
 						} catch (err) {
 							console.error(err)
-							alert( `Error: ${err}` );
+							alert( `${err}` );
 						}
 					},
 					async editUser(){
