@@ -25,6 +25,9 @@ func main() {
 	// API Routes
 		api := app.Group( "/api" )
 		api.Get("/users", userController.All )
+		api.Post("/users", userController.New )
+		api.Patch("/users/:id", userController.Edit )
+		api.Delete("/users/:id", userController.Delete )
 
 	log.Fatal(app.Listen(":3000"))
 }
