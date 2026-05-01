@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="//unpkg.com/alpinejs" defer></script>
-		<script src="https://unpkg.com/axios@1.13.2/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/axios@1.15.2/dist/axios.min.js"></script>
 	</head>
 
 	<body class="bg-gray-100 min-h-screen flex flex-col">
@@ -296,18 +296,8 @@
 						age: "",
 						location: "",
 					},
-					init(){ this.reloadUsers() },
-					reloadUsers(){
-						users = [
-							{id:'1', name:"Helmi", email: "helmi@xeno.com.my", age: "35", location: "Kuala Lumpur"},
-							{id:'2', name:"Khairul", email: "khairul@gmail.com", age: "29", location: "Alor Setar"},
-						];
+					init(){ this.loadUsers() },
 
-						// Re-map
-							for( let user of users ){
-								this.users[ user.id ] = user;
-							}
-					},
 					openCreateModal(){
 						this.showCreateModal = true;
 						this.$nextTick(() => {
@@ -325,6 +315,24 @@
 					},
 					closeCreateModal(){ this.showCreateModal = false },
 					closeEditModal(){ this.showEditModal = false },
+					async loadUsers(){
+						this.loading = true;
+						// Get list of users
+							
+							var users = [];
+							try {
+								const response = await axios.get('/api/users');
+								users = response.data;
+							} catch (err) {
+								console.error(err);
+							}
+
+						// Re-map
+							for( let user of users ){
+								this.users[ user.id ] = user;
+							}
+						this.loading = false;
+					},
 					newUser(){
 						console.log( this.newUserForm );
 					},
