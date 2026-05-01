@@ -338,6 +338,7 @@
 						this.loading = false;
 					},
 					async newUser(){
+						this.loading = true;
 						try {
 							if ( !this.newUserForm.name ||
 								 !this.newUserForm.email ||
@@ -360,8 +361,10 @@
 							console.error(err)
 							alert( `${err}` );
 						}
+						this.loading = false;
 					},
 					async editUser(){
+						this.loading = true;
 						try {
 							const response = await axios.patch(`/api/users/${this.editUserForm.id}`, this.editUserForm );
 							if ( response.data.success ) {
@@ -377,8 +380,10 @@
 							console.error(err)
 							alert( `Error: ${err}` );
 						}
+						this.loading = false;
 					},
 					async deleteUser( id ){
+						this.loading = true;
 						try {
 							const response = await axios.delete( `/api/users/${id}` );
 							if ( response.data.success ) {
@@ -392,6 +397,7 @@
 							console.error(err)
 							alert( `Error: ${err}` );
 						}
+						this.loading = false;
 					}
 				}));
 			});
