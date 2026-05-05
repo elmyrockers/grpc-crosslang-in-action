@@ -348,6 +348,7 @@
 							}
 
 							const response = await axios.post( '/api/users', this.newUserForm );
+							console.log( response );
 							if ( response.data.success ) {
 								alert( 'Successfully add new user!' );
 
